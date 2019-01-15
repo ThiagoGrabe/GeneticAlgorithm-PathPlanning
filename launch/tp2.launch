@@ -1,0 +1,14 @@
+<launch>
+  <!-- Name of the world file to use -->
+  <arg name="world_file"     default="$(find tp2)/models/holonomic_map.world"/>
+  <arg name="code"     default="$(find tp2)/src/occupancy"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(arg world_file)">
+    <param name="base_watchdog_timeout" value="0.5"/>
+  </node>
+  <node pkg="tp2" type="occupancy.py" name="occupancy" args="$(arg code)">
+    <param name="file" value="$(arg world_file)"/>
+  </node>
+
+   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find tp2)/rviz/config_file.rviz" />
+</launch>

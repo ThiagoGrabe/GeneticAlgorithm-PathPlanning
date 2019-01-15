@@ -1,0 +1,12 @@
+<launch>
+  <!-- Name of the world file to use -->
+  <arg name="world_file"     default="$(find tp3)/maps/map06.world"/>
+  <arg name="code"     default="$(find tp3)/script/Teste_06/projeto"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(arg world_file)">
+    <param name="base_watchdog_timeout" value="0.5"/>
+  </node>
+  <node pkg="tp3" type="projeto.py" name="project" args="$(arg code)" output="screen">
+    <param name="file" value="$(arg world_file)"/>
+  </node>
+</launch>

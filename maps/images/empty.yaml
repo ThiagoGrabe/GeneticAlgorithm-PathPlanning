@@ -1,0 +1,15 @@
+# https://medium.com/@ivangavran/ros-creating-world-file-from-existing-yaml-5b553d31cc53
+# http://wiki.ros.org/map_server
+# 
+# image : Path to the image file containing the occupancy data; can be absolute, or relative to the location of the YAML file
+# resolution : Resolution of the map, meters / pixel
+# origin : The 2-D pose of the lower-left pixel in the map, as (x, y, yaw), with yaw as counterclockwise rotation (yaw=0 means no rotation). Many parts of the system currently ignore yaw.
+# occupied_thresh : Pixels with occupancy probability greater than this threshold are considered completely occupied.
+# free_thresh : Pixels with occupancy probability less than this threshold are considered completely free.
+# negate : Whether the white/black free/occupied semantics should be reversed (interpretation of thresholds is unaffected) 
+image: empty.png
+resolution: 0.032  # 16meters/500px
+origin: [0.0, 0.0, 0.0]
+occupied_thresh: 0.65
+free_thresh: 0.196
+negate: 0
